@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from .models import programmer 
 from .models import Nacionalidad, Autor, Comuna, Direccion
 
 
