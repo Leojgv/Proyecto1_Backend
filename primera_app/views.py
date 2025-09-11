@@ -6,18 +6,18 @@ from .models import Nacionalidad, Comuna, Autor, Direccion
 
 # Create your views here.
 
-class ComunaViewSet(viewsets.ModelViewSet):
+class Comuna_ViewSet(viewsets.ModelViewSet):
     queryset = Comuna.objects.all()
     serializer_class = Comuna_Serializer
 
-class NacionalidadViewSet(viewsets.ModelViewSet):
+class Nacionalidad_ViewSet(viewsets.ModelViewSet):
     queryset = Nacionalidad.objects.all()
     serializer_class = Nacionalidad_Serializer
 
-class AutorViewSet(viewsets.ModelViewSet):
+class Autor_ViewSet(viewsets.ModelViewSet):
     queryset = Autor.objects.all()
     serializer_class = Autor_Serializer
 
-class DireccionViewSet(viewsets.ModelViewSet):
+class Direccion_ViewSet(viewsets.ModelViewSet):
     queryset = Direccion.objects.all()
     serializer_class = Direccion_Serializer
