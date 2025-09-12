@@ -3,6 +3,9 @@ from rest_framework import viewsets
 from .serializer import Nacionalidad_Serializer, Comuna_Serializer, Autor_Serializer, Direccion_Serializer
 from .models import Nacionalidad, Comuna, Autor, Direccion
 
+def home(request):
+    return render(request, 'index.html')
+
 
 # Create your views here.
 
