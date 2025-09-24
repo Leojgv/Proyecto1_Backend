@@ -1,5 +1,6 @@
 from django.db import models
 
+# ahora = datetime.datetime.now
 # Create your models here.
 
 class Nacionalidad(models.Model):
