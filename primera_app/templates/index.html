@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi pagina</title>
     <link = rel="stylesheet" href="{% static 'css\bootstrap.css' %}">
+    <link = rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    <div class="row">
-      <div class="row navegacion"></div>
-      <hr />
-      <div class="row principal">
-        <div class="col-4"></div>
-        <div class="col-8">
-          <h3>Bienvenidos a su nueva aplicación Django</h3>
-          <h3>Hola lol</h3>
-        </div>
-      </div>
-      <div class="row footer"></div>
-    </div>
-
+  <h1>Bienvenidos a su nueva aplicación Django</h1>
+  <h3>Hola lol</h3>
+  <div class="lista_botones">
+    <ul>  
+      <li><a href="/admin/" class="btn btn-success">Admin</a></li>
+      <li><a href="/primera_app/" class="btn btn-primary">Primera app</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/Nacionalidad/" class="btn btn-info">Nacionalidad</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/Autor/" class="btn btn-info">Autor</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/Comuna/" class="btn btn-info">Comuna</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/Direccion/" class="btn btn-info">Direccion</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/bibliotecas/" class="btn btn-info">Bibliotecas</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/lectores/" class="btn btn-info">Lectores</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/tipos-categorias/" class="btn btn-info">TiposCategorias</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/categorias/" class="btn btn-info">categorias</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/libros/" class="btn btn-info">libros</a></li>
+      <li><a href="http://127.0.0.1:8000/primera_app/prestamos/" class="btn btn-info">prestamos</a></li>
+    </ul>
+  </div>
     <script src="" async defer></script>
 </body>
 </html>
