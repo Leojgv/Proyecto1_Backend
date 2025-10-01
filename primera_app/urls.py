@@ -4,10 +4,10 @@ from primera_app import views
 
 router = routers.DefaultRouter()
 
-router.register(r'Nacionalidad', views.Nacionalidad_ViewSet)
-router.register(r'Comuna', views.Comuna_ViewSet)
-router.register(r'Autor', views.Autor_ViewSet)
-router.register(r'Direccion', views.Direccion_ViewSet)
+router.register(r'Nacionalidad', views.NacionalidadViewSet)
+router.register(r'Comuna', views.ComunaViewSet)
+router.register(r'Autor', views.AutorViewSet)
+router.register(r'Direccion', views.DireccionViewSet)
 router.register(r'bibliotecas', views.BibliotecaViewSet)
 router.register(r'lectores', views.LectorViewSet)
 router.register(r'tipos-categorias', views.TipoCategoriaViewSet)

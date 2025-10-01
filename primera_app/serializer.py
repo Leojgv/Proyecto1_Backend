@@ -2,22 +2,22 @@ from rest_framework import serializers
 from .models import Nacionalidad, Autor, Comuna, Direccion, Biblioteca, Lector, TipoCategoria, Categoria, Libro, Prestamo
 
 
-class Nacionalidad_Serializer(serializers.ModelSerializer):
+class NacionalidadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nacionalidad
         fields = '__all__'
 
-class Autor_Serializer(serializers.ModelSerializer):
+class AutorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Autor
         fields = '__all__'
 
-class Comuna_Serializer(serializers.ModelSerializer):
+class ComunaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comuna
         fields = '__all__'
 
-class Direccion_Serializer(serializers.ModelSerializer):
+class DireccionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Direccion
         fields = '__all__'

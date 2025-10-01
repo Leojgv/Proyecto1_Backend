@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializer import Nacionalidad_Serializer, Comuna_Serializer, Autor_Serializer, Direccion_Serializer, BibliotecaSerializer, LectorSerializer, TipoCategoriaSerializer, CategoriaSerializer, LibroSerializer, PrestamoSerializer
+from .serializer import NacionalidadSerializer, ComunaSerializer, AutorSerializer, DireccionSerializer, BibliotecaSerializer, LectorSerializer, TipoCategoriaSerializer, CategoriaSerializer, LibroSerializer, PrestamoSerializer
 from .models import Nacionalidad, Comuna, Autor, Direccion, Biblioteca, Lector, TipoCategoria, Categoria, Libro, Prestamo
 
 def home(request):
@@ -9,21 +9,21 @@ def home(request):
 
 # Create your views here.
 
-class Comuna_ViewSet(viewsets.ModelViewSet):
+class ComunaViewSet(viewsets.ModelViewSet):
     queryset = Comuna.objects.all()
-    serializer_class = Comuna_Serializer
+    serializer_class = ComunaSerializer
 
-class Nacionalidad_ViewSet(viewsets.ModelViewSet):
+class NacionalidadViewSet(viewsets.ModelViewSet):
     queryset = Nacionalidad.objects.all()
-    serializer_class = Nacionalidad_Serializer
+    serializer_class = NacionalidadSerializer
 
-class Autor_ViewSet(viewsets.ModelViewSet):
+class AutorViewSet(viewsets.ModelViewSet):
     queryset = Autor.objects.all()
-    serializer_class = Autor_Serializer
+    serializer_class = AutorSerializer
 
-class Direccion_ViewSet(viewsets.ModelViewSet):
+class DireccionViewSet(viewsets.ModelViewSet):
     queryset = Direccion.objects.all()
-    serializer_class = Direccion_Serializer
+    serializer_class = DireccionSerializer
 
 class BibliotecaViewSet(viewsets.ModelViewSet):
     queryset = Biblioteca.objects.all()
