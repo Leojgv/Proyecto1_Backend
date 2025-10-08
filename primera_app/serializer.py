@@ -8,7 +8,7 @@ class NacionalidadSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AutorSerializer(serializers.ModelSerializer):
-    id_nacionalidad = NacionalidadSerializer()
+    #id_nacionalidad = NacionalidadSerializer()
     class Meta:
         model = Autor
         fields = '__all__'
