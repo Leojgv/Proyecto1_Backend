@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi pagina</title>
+    <title>{% block title %}Mi primera Pagina{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %} 
     <link = rel="stylesheet" href="{% static 'css\bootstrap.css' %}">
     <link = rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-  <h1>Bienvenidos a su nueva aplicación Django</h1>
-  <h3>Hola lol</h3>
+  <h1>{% block titulo_encabezado %}Bienvenidos a su nueva aplicación Django{% endblock %}</h1>
+  <h3>mmmmmmmm - Leo</h3>
   <div class="lista_botones">
     <ul>  
       <li><a href="/admin/" class="btn btn-success">Admin</a></li>
