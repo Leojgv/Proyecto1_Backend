@@ -6,7 +6,10 @@ margin-bottom: 20px;
 }
 
 .lista_botones {
-margin-left: 50px;
-margin-right: 50px;
-display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column; /* Apila los botones verticalmente */
+    align-items: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Añade un espacio de 10px entre cada botón */
 }
