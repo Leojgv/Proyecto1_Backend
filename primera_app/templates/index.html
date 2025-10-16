@@ -10,12 +10,14 @@
     {% bootstrap_javascript %} 
     <link = rel="stylesheet" href="{% static 'css\bootstrap.css' %}">
     <link = rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
+</head>   
 <body>
   <h1>{% block titulo_encabezado %}Bienvenidos a su nueva aplicación Django{% endblock %}</h1>
   <h3>mmmmmmmm - Leo</h3>
   <div class="lista_botones">
-    <ul>  
+    <ul>
+      <li><a href="http://127.0.0.1:8000/redocs/" class="btn btn-success">API -Redocs</a></li>
+      <li><a href="http://127.0.0.1:8000/apidocs/" class="btn btn-success">API - Apidocs</a></li>  
       <li><a href="/admin/" class="btn btn-success">Admin</a></li>
       <li><a href="/primera_app/" class="btn btn-primary">Primera app</a></li>
       <li><a href="http://127.0.0.1:8000/primera_app/Nacionalidad/" class="btn btn-info">Nacionalidad</a></li>
