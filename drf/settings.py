@@ -29,6 +29,14 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/'
+
+# SESSION expira después de 1 hora
+SESSION_COOKIE_AGE = 3600
+# SESSION expira al cerrar el navegador
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Usamos la DB para SESSION
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Application definition
 
@@ -39,9 +47,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Mis Apps
     'primera_app',
+
+    #Apps de Terceros   
     'rest_framework',
     'bootstrap5',
+    #'iconic'
+
+    #Documentacion de API
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
