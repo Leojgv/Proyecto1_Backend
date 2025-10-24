@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     #Apps de Terceros   
     'rest_framework',
     'bootstrap5',
-    #'iconic'
+    'localflavor.cl',
+    'iconic',
 
     #Documentacion de API
     'drf_yasg',
