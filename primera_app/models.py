@@ -1,9 +1,20 @@
 from django.db import models
+# from rutificador import Rut
+# from django.core.exceptions import ValidationError
 import datetime
 
 ahora = datetime.datetime.now
-# Create your models here.
 
+# def validar_rut(rut):
+#     try:
+#         rut_valido = Rut(rut)
+#     except: 
+#         raise ValidationError("Dígito verificador inválido")
+
+# def validar_mayor_edad(fecha_nacimiento):
+#     pass
+
+# Create your models here.
 class Nacionalidad(models.Model):
     pais = models.CharField(max_length=50, null=False)
     nacionalidad = models.CharField(max_length=50, null=False)
