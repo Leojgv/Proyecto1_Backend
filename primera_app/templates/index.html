@@ -11,24 +11,22 @@
 </head>   
 <body>
   <h1>{% block titulo_encabezado %}Bienvenidos a su nueva aplicación Django{% endblock %}</h1>
-  <div>
-    <ul class="listanavegacion">
-      <li><a href="http://127.0.0.1:8000/redocs/" class="btn btn-success">API -Redocs</a></li>
-      <li><a href="http://127.0.0.1:8000/apidocs/" class="btn btn-success">API - Apidocs</a></li>  
-      <li><a href="/admin/" class="btn btn-success">Admin</a></li>
-      <li><a href="/primera_app/" class="btn btn-primary">Primera app</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/Nacionalidad/" class="btn btn-info">Nacionalidad</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/Autor/" class="btn btn-info">Autor</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/Comuna/" class="btn btn-info">Comuna</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/Direccion/" class="btn btn-info">Direccion</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/bibliotecas/" class="btn btn-info">Bibliotecas</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/lectores/" class="btn btn-info">Lectores</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/tipos-categorias/" class="btn btn-info">TiposCategorias</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/categorias/" class="btn btn-info">categorias</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/libros/" class="btn btn-info">libros</a></li>
-      <li><a href="http://127.0.0.1:8000/primera_app/prestamos/" class="btn btn-info">prestamos</a></li>
-      <li><a href="{% url 'logout' %}" class="btn btn-primary">Cerrar Sesion</a></li>
-    </ul>
+  <div class="lista_botones">
+      <a href="http://127.0.0.1:8000/redocs/" class="btn btn-success">API -Redocs </a>
+      <a href="http://127.0.0.1:8000/apidocs/" class="btn btn-success">API - Apidocs</a>  
+      <a href="/admin/" class="btn btn-success">Admin</a>
+      <a href="/primera_app/" class="btn btn-primary">Primera app</a>
+      <a href="http://127.0.0.1:8000/primera_app/Nacionalidad/" class="btn btn-info">Nacionalidad</a>
+      <a href="http://127.0.0.1:8000/primera_app/Autor/" class="btn btn-info">Autor</a>
+      <a href="http://127.0.0.1:8000/primera_app/Comuna/" class="btn btn-info">Comuna</a>
+      <a href="http://127.0.0.1:8000/primera_app/Direccion/" class="btn btn-info">Direccion</a>
+      <a href="http://127.0.0.1:8000/primera_app/bibliotecas/" class="btn btn-info">Bibliotecas</a>
+      <a href="http://127.0.0.1:8000/primera_app/lectores/" class="btn btn-info">Lectores</a>
+      <a href="http://127.0.0.1:8000/primera_app/tipos-categorias/" class="btn btn-info">TiposCategorias</a>
+      <a href="http://127.0.0.1:8000/primera_app/categorias/" class="btn btn-info">categorias</a>
+      <a href="http://127.0.0.1:8000/primera_app/libros/" class="btn btn-info">libros</a>
+      <a href="http://127.0.0.1:8000/primera_app/prestamos/" class="btn btn-info">prestamos</a>
+      <a href="{% url 'logout' %}" class="btn btn-primary">Cerrar Sesion</a>
   </div>
     <script src="" async defer></script>
 </body>
