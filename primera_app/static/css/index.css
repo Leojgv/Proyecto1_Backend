@@ -1,8 +1,9 @@
 h3, h1  { 
-text-align: center;
-color: #ffffff;
-margin-top: 20px;
-margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
 .lista_botones {
@@ -10,6 +11,5 @@ margin-bottom: 20px;
     margin-right: 50px;
     display: flex;
     flex-direction: column; /* Apila los botones verticalmente */
-    align-items: center; /* Centra los botones horizontalmente */
     gap: 10px; /* Añade un espacio de 10px entre cada botón */
 }
