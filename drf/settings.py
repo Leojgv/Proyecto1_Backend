@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'localflavor.cl',
     'iconic',
+    'django_filters',
 
     #Documentacion de API
     'drf_yasg',
