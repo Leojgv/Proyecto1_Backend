@@ -1,15 +1,12 @@
 h3, h1  { 
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
 }
 
 .lista_botones {
-    margin-left: 50px;
-    margin-right: 50px;
-    display: flex;
-    flex-direction: column; /* Apila los botones verticalmente */
-    gap: 10px; /* Añade un espacio de 10px entre cada botón */
+    display: block;
+    justify-content: center;
+    margin-bottom: 50px;
 }
