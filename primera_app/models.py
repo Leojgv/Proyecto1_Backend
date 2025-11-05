@@ -21,26 +21,39 @@ class Nacionalidad(models.Model):
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def  __str__(self):
+        return self.nacionalidad
+
 class Autor(models.Model):
     nombre = models.CharField(max_length=250, null=False)
     pseudonimo = models.CharField(max_length=50, null=True)
-    id_nacionalidad = models.ForeignKey(Nacionalidad, on_delete=models.CASCADE)
-    bio = models.TextField
+    id_nacionalidad = models.ForeignKey(
+        Nacionalidad, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        if self.pseudonimo!='':
+            return self.pseudonimo
+        else:
+            return self.nombre
 
 class Comuna(models.Model):
     codigo = models.CharField(max_length=5, null=False)
     comuna = models.CharField(max_length=50, null=False)
     created_at = models.DateTimeField(default=ahora)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.comuna
 
 class Direccion(models.Model):
     id_comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
-    calle = models.CharField(max_length=50, null=True)
-    numero = models.CharField(max_length=20, null=True)
-    departamento = models.CharField(max_length=10, null=True)
-    detalles = models.TextField()
+    calle = models.CharField(max_length=50, blank=True)
+    numero = models.CharField(max_length=20, blank=True)
+    departamento = models.CharField(max_length=10, blank=True)
+    detalles = models.TextField(blank=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -48,10 +61,13 @@ class Biblioteca(models.Model):
     id_direccion = models.ForeignKey(
         Direccion, on_delete=models.CASCADE, null=True)
     nombre_biblioteca = models.CharField(max_length=100, null=False)
-    web = models.CharField(max_length=255, null=True)
+    web = models.CharField(max_length=255, blank=True)
     habilitado = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.nombre_biblioteca
 
 
 class Lector(models.Model):
@@ -67,12 +83,18 @@ class Lector(models.Model):
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.nombre_lector
+
 
 class TipoCategoria(models.Model):
     tipo_categoria = models.CharField(max_length=50, null=False)
     habilitado = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.tipo_categoria
 
 
 class Categoria(models.Model):
@@ -84,13 +106,16 @@ class Categoria(models.Model):
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.categoria
+
 
 class Libro(models.Model):
     id_biblioteca = models.ForeignKey(
         Biblioteca, on_delete=models.CASCADE, null=False)
     id_categoria = models.ForeignKey(
         Categoria, on_delete=models.CASCADE, null=True)
-    id_autor = models.ForeignKey(Autor, on_delete=models.CASCADE, null=False)
+    id_autor = models.ForeignKey(Autor, on_delete=models.CASCADE, blank=False)
     titulo = models.CharField(max_length=255, null=False)
     paginas = models.IntegerField(null=False)
     copias = models.IntegerField(null=False)
