@@ -40,13 +40,13 @@ class Autor(models.Model):
             return self.nombre
 
 class Comuna(models.Model):
-    codigo = models.CharField(max_length=5, null=False)
-    comuna = models.CharField(max_length=50, null=False)
+    codigo_comuna = models.CharField(max_length=5, null=False)
+    nombre_comuna = models.CharField(max_length=50, null=False)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def __str__(self):
-        return self.comuna
+        return self.nombre_comuna
 
 class Direccion(models.Model):
     id_comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
