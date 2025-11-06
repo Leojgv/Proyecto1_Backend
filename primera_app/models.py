@@ -1,18 +1,16 @@
 from django.db import models
-from rutificador import Rut
 from django.core.exceptions import ValidationError
+from rut_chile import rut_chile
 import datetime
 
 ahora = datetime.datetime.now
 
-
 # Create your models here.
 
 def validar_rut(rut):
-    try:
-        rut_valido = Rut(rut)
-    except:
-        raise ValidationError('Dígito verificador NO corresponde.')
+    valido = rut_chile.is_valid_rut(rut)
+    if valido == False:
+        raise ValidationError('RUT inválido.')
 
 
 def validar_mayoria_edad(fecha_nacimiento):
@@ -92,7 +90,6 @@ class Lector(models.Model):
         Direccion, on_delete=models.CASCADE, null=True)
     rut_lector = models.CharField(
         max_length=12, blank=False, unique=True, validators=[validar_rut])
-    digito_verificador = models.CharField(max_length=1, null=False)
     nombre_lector = models.CharField(max_length=255, null=False)
     correo_lector = models.CharField(max_length=255, blank=True)
     fecha_nacimiento = models.DateField(

@@ -85,38 +85,26 @@ class BibliotecaSerializer(serializers.ModelSerializer):
         ]
 
 class LectorSerializer(serializers.ModelSerializer):
-    rut_lector = serializers.CharField(label='RUT')
-    nombre_lector = serializers.CharField(max_length=255, label='Nombre')
-    correo_lector = serializers.CharField(max_length=255, label='Email')
-    fecha_nacimiento = serializers.DateField(label='Fecha Nacimiento')
+    # rut_lector = serializers.CharField(label='RUT')
+    # nombre_lector = serializers.CharField(max_length=255, label='Nombre')
+    # correo_lector = serializers.CharField(max_length=255, label='Email')
+    # fecha_nacimiento = serializers.DateField(label='Fecha Nacimiento')
 
-    biblioteca = serializers.StringRelatedField(
-        source='id_biblioteca', read_only=True)
-    id_biblioteca = serializers.PrimaryKeyRelatedField(
-        queryset=Biblioteca.objects.all()
-    )
+    # biblioteca = serializers.StringRelatedField(
+    #     source='id_biblioteca', read_only=True)
+    # id_biblioteca = serializers.PrimaryKeyRelatedField(
+    #     queryset=Biblioteca.objects.all()
+    # )
 
-    direccion = serializers.StringRelatedField(
-        source='id_direccion', read_only=True)
-    id_direccion = serializers.PrimaryKeyRelatedField(
-        queryset=Direccion.objects.all()
-    )
-
-
+    # direccion = serializers.StringRelatedField(
+    #     source='id_direccion', read_only=True)
+    # id_direccion = serializers.PrimaryKeyRelatedField(
+    #     queryset=Direccion.objects.all()
+    # )
 
     class Meta:
         model = Lector
-        fields = [
-            'id',
-            'rut_lector',
-            'nombre_lector',
-            'correo_lector',
-            'fecha_nacimiento',
-            'id_biblioteca',
-            'biblioteca',
-            'id_direccion',
-            'direccion',
-        ]
+        fields = '__all__'
 
 class TipoCategoriaSerializer(serializers.ModelSerializer):
     tipo_categoria = serializers.CharField(
