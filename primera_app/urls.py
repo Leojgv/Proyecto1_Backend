@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from primera_app import views
+from django.contrib.auth import views as auth_views
 
 router = routers.DefaultRouter()
 
@@ -16,5 +17,6 @@ router.register(r'libros', views.LibroViewSet)
 router.register(r'prestamos', views.PrestamoViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout')
 ]

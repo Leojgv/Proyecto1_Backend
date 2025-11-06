@@ -5,6 +5,9 @@ import datetime
 
 ahora = datetime.datetime.now
 
+
+# Create your models here.
+
 def validar_rut(rut):
     try:
         rut_valido = Rut(rut)
@@ -13,14 +16,17 @@ def validar_rut(rut):
 
 
 def validar_mayoria_edad(fecha_nacimiento):
-    fecha_actual = datetime.datetime.today()
+    fecha_actual = datetime.datetime.now()
     edad = fecha_actual.year - fecha_nacimiento.year
-    if (fecha_nacimiento.month, fecha_nacimiento.day) > (fecha_actual.month, fecha_actual.day):
+    if (fecha_actual.month, fecha_actual.day) < (fecha_nacimiento.month, fecha_nacimiento.day):
         edad -= 1
     if edad < 18:
-        raise ValidationError('Debe ser mayor de edad...')
+        raise ValidationError('Debe ser mayor de edad.')
+    
+class OpcionesGenero(models.TextChoices):
+    MASCULINO = 'M', 'Masculino'
+    FEMENINO = 'F', 'Femenino'
 
-# Create your models here.
 class Nacionalidad(models.Model):
     pais = models.CharField(max_length=50, null=False)
     nacionalidad = models.CharField(max_length=50, null=False)
@@ -84,11 +90,14 @@ class Lector(models.Model):
         Biblioteca, on_delete=models.CASCADE, null=False)
     id_direccion = models.ForeignKey(
         Direccion, on_delete=models.CASCADE, null=True)
-    rut_lector = models.CharField(max_length=9, null=False, unique=True, validators=[validar_rut])
+    rut_lector = models.CharField(
+        max_length=12, blank=False, unique=True, validators=[validar_rut])
     digito_verificador = models.CharField(max_length=1, null=False)
     nombre_lector = models.CharField(max_length=255, null=False)
     correo_lector = models.CharField(max_length=255, blank=True)
-    fecha_nacimiento = models.DateField(default=datetime.date.min, blank=True, validators=[validar_mayoria_edad])
+    fecha_nacimiento = models.DateField(
+        blank=True, default=None, validators=[validar_mayoria_edad])
+    genero = models.CharField(max_length=1,choices=OpcionesGenero.choices,default=OpcionesGenero.MASCULINO)
     habilitado = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
