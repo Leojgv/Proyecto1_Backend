@@ -1,18 +1,24 @@
 from django.db import models
-# from rutificador import Rut
-# from django.core.exceptions import ValidationError
+from rutificador import Rut
+from django.core.exceptions import ValidationError
 import datetime
 
 ahora = datetime.datetime.now
 
-# def validar_rut(rut):
-#     try:
-#         rut_valido = Rut(rut)
-#     except: 
-#         raise ValidationError("Dígito verificador inválido")
+def validar_rut(rut):
+    try:
+        rut_valido = Rut(rut)
+    except:
+        raise ValidationError('Dígito verificador NO corresponde.')
 
-# def validar_mayor_edad(fecha_nacimiento):
-#     pass
+
+def validar_mayoria_edad(fecha_nacimiento):
+    fecha_actual = datetime.datetime.today()
+    edad = fecha_actual.year - fecha_nacimiento.year
+    if (fecha_nacimiento.month, fecha_nacimiento.day) > (fecha_actual.month, fecha_actual.day):
+        edad -= 1
+    if edad < 18:
+        raise ValidationError('Debe ser mayor de edad...')
 
 # Create your models here.
 class Nacionalidad(models.Model):
@@ -26,7 +32,7 @@ class Nacionalidad(models.Model):
 
 class Autor(models.Model):
     nombre = models.CharField(max_length=250, null=False)
-    pseudonimo = models.CharField(max_length=50, null=True)
+    pseudonimo = models.CharField(max_length=50, blank=True)
     id_nacionalidad = models.ForeignKey(
         Nacionalidad, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
@@ -57,6 +63,9 @@ class Direccion(models.Model):
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.calle
+
 class Biblioteca(models.Model):
     id_direccion = models.ForeignKey(
         Direccion, on_delete=models.CASCADE, null=True)
@@ -75,10 +84,11 @@ class Lector(models.Model):
         Biblioteca, on_delete=models.CASCADE, null=False)
     id_direccion = models.ForeignKey(
         Direccion, on_delete=models.CASCADE, null=True)
-    rut_lector = models.IntegerField(null=False, unique=True)
+    rut_lector = models.CharField(max_length=9, null=False, unique=True, validators=[validar_rut])
     digito_verificador = models.CharField(max_length=1, null=False)
     nombre_lector = models.CharField(max_length=255, null=False)
-    correo_lector = models.CharField(max_length=255, null=True)
+    correo_lector = models.CharField(max_length=255, blank=True)
+    fecha_nacimiento = models.DateField(default=datetime.date.min, blank=True, validators=[validar_mayoria_edad])
     habilitado = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
@@ -101,7 +111,7 @@ class Categoria(models.Model):
     id_tipo_categoria = models.ForeignKey(
         TipoCategoria, on_delete=models.CASCADE, null=False)
     categoria = models.CharField(max_length=100, null=False)
-    descripcion = models.CharField(max_length=255, null=True)
+    descripcion = models.CharField(max_length=255, blank=True)
     habilitado = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=ahora)
     updated_at = models.DateTimeField(auto_now=True)
