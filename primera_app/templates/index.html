@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi primera Pagina WEB{% endblock %}</title>
-    <link = rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
-    <link = rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     {% block extra_head %}{% endblock %}
 </head>   
 <body>
-  <h1>{% block titulo_encabezado %}Bienvenidos a su nueva aplicación Django{% endblock %}</h1>
-  <div class="lista_botones">
+
+  <h1 class="titulo">{% block titulo_encabezado %}Bienvenidos a su nueva aplicación Django{% endblock %}</h1>
+
+  <div class="menu-botones">
       <a href="/redocs/" class="btn btn-success">API -Redocs </a>
       <a href="/apidocs/" class="btn btn-success">API - Apidocs</a>  
       <a href="/admin/" class="btn btn-success">Admin</a>
@@ -26,8 +28,8 @@
       <a href="/primera_app/categorias/" class="btn btn-info">categorias</a>
       <a href="/primera_app/libros/" class="btn btn-info">libros</a>
       <a href="/primera_app/prestamos/" class="btn btn-info">prestamos</a>
-      <a href="{% url 'logout' %}" class="btn btn-primary">Cerrar Sesion</a>
+      <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesion</a>
   </div>
-    <script src="" async defer></script>
+
 </body>
 </html>
